@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+h1, h2, h3, h4, h5, h6{
+    font-family: "Concert One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+p, span, input, button, ul, li, a{
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+}

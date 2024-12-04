@@ -1,0 +1,36 @@
+.navbar {
+    margin-bottom: 20px;
+}
+.navbar-brand img {
+    height: auto;
+    width: 150% ;
+}
+.navbar {
+    background: linear-gradient(to right, #000000, hsl(199, 88%, 70%));
+}
+
+.navbar-brand img {
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #0b03ff !important;
+}
+
+.btn-danger {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+}
+
+.btn-danger:hover {
+    background-color: #0b1dc2;
+    border-color: #1104c0;
+}

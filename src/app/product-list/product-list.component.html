@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center my-4">
+        <h1 class="text-center"
+            style="color: #030917; text-shadow: 2px 2px 5px rgba(3, 68, 189, 0.9); font-size: 3rem;">
+            Mi Tienda Online
+        </h1>
+        <!-- Botón para agregar producto -->
+        <button class="btn btn-pink" *ngIf="authService.isLoggedIn()" (click)="addProduct()">Agregar Producto</button>
+    </div>
+
+    <div *ngIf="loading" class="text-center">Cargando productos...</div> <!-- Mensaje de carga -->
+
+    <div class="row">
+        <!-- Mostrar productos -->
+        <div *ngFor="let product of products" class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="position-relative">
+                    <img [src]="product.images[0]" class="card-img-top" alt="{{ product.title }}"
+                        style="height: 200px; object-fit: cover; background-color: #f4f4f4;" />
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: #000000;">{{ product.title }}</h5>
+                    <p class="card-text fw-bold text-purple">$ {{ product.price }}</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <!-- Botón de eliminar producto -->
+                    <button class="btn btn-outline-danger" *ngIf="authService.isLoggedIn()"
+                        (click)="deleteProduct(product.id)">
+                        <i class="bi bi-trash"></i> Eliminar
+                    </button>
+                    <!-- Botón de editar producto -->
+                    <button class="btn btn-purple text-white" *ngIf="authService.isLoggedIn()"
+                        (click)="editProduct(product.id)">
+                        <i class="bi bi-pencil"></i> Editar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

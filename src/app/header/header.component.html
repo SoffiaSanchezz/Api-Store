@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <div class="container">
+        <!-- Logo con texto más estilizado -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="/Logo.png" alt="Tienda Moderna" style="height: 40px; width: auto; margin-right: 10px;">
+            <span class="fw-bold text-primary">Shopping</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link text-dark fw-semibold" routerLink="/products"
+                        routerLinkActive="active">Productos</a>
+                </li>
+
+                <!-- Dropdown de categorías -->
+                <li class="nav-item dropdown" *ngIf="categories.length > 0">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Categorías
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li *ngFor="let category of categories">
+                            <a class="dropdown-item" [routerLink]="'/products/category/' + category.id">
+                                {{ category.name }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item" *ngIf="!authService.isLoggedIn()">
+                    <a class="nav-link text-dark fw-semibold" routerLink="/login" routerLinkActive="active">Login</a>
+                </li>
+                <li class="nav-item" *ngIf="authService.isLoggedIn()">
+                    <button class="btn btn-danger btn-sm ms-2" (click)="logout()">Cerrar sesión</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
